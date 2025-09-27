@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="available-options-container">
+    <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    <h2>Available Options for Apartment/Room around {{UniName}}</h2>
+   
+    <div *ngFor="let apartment of apartments" class="apartment">
+        <div class="apartment-row">
+            <label>Name:</label>
+            <input type="text" [value]="apartment.name" readonly>
+        </div>
+        <div class="apartment-row">
+            <label>Sex:</label>
+            <input type="text" [value]="apartment.sex" readonly>
+        </div>
+       
+     
+        <div class="apartment-row">
+            <label>Price/night:</label>
+            <input type="text" [value]="apartment.price" readonly>
+        </div>
+        <div class="apartment-row">
+            <label>Type of Place:</label>
+            <input type="text" [value]="apartment.type" readonly>
+        </div>
+        <div class="apartment-row">
+            <label>Extra Instructions:</label>
+            <input type="text" [value]="apartment.instructions" readonly>
+        </div>
+        <div class="apartment-row">
+            <label>Contact:</label>
+            <button class="btn btn-primary">VIEW</button>
+        </div>
+
+         <!-- New Section for Images -->
+         <div class="apartment-row">
+            <label>Images:</label>
+            <div class="apartment-images">
+                <div *ngFor="let image of apartment.images">
+                    <img [src]="image" alt="Apartment Image" class="apartment-image-thumbnail">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

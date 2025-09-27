@@ -1,0 +1,51 @@
+<app-header></app-header>
+<!-- Ride Sharing Component -->
+<div class="ride-sharing-container">
+
+    <!-- Section to find a ride -->
+    <div class="find-ride">
+        <h2>Need a ride?</h2>
+        <p>Find available options</p>
+        <button [routerLink]="['/available-rides']" class="btn btn-primary">Find a ride</button>
+    </div>
+
+    <!-- Section to post a ride -->
+    <div class="post-ride">
+        <h2>Post a ride</h2>
+        <form (ngSubmit)="postRide()" #rideForm="ngForm" novalidate>
+            <label for="name">Name:</label>
+            <input type="text" id="name" [(ngModel)]="rideDetails.name" name="name" required #name="ngModel">
+            <div *ngIf="name.invalid && name.touched" class="error">Name is required</div>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" [(ngModel)]="rideDetails.age" name="age" required #age="ngModel" min="1">
+            <div *ngIf="age.invalid && age.touched" class="error">Please enter a valid age</div>
+
+            <label for="sex">Sex:</label>
+            <select id="sex" [(ngModel)]="rideDetails.sex" name="sex" required #sex="ngModel">
+                <option value="" disabled>Select Sex</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <div *ngIf="sex.invalid && sex.touched" class="error">Please select a sex</div>
+
+            <label for="price">Price/hr:</label>
+            <input type="number" id="price" [(ngModel)]="rideDetails.price" name="price" required #price="ngModel" min="0">
+            <div *ngIf="price.invalid && price.touched" class="error">Enter a valid price</div>
+
+            <label for="purpose">Purpose:</label>
+            <input type="text" id="purpose" [(ngModel)]="rideDetails.purpose" name="purpose" required #purpose="ngModel">
+            <div *ngIf="purpose.invalid && purpose.touched" class="error">Purpose is required</div>
+
+            <label for="contact">Phone Number:</label>
+            <input type="text" id="contact" [(ngModel)]="rideDetails.contact" name="contact" pattern="^\d{10}$" required #contact="ngModel">
+            <div *ngIf="contact.invalid && contact.touched" class="error">Enter a valid 10-digit number</div>
+
+            <label for="schoolName">School Name:</label>
+            <input type="text" id="schoolName" disabled [(ngModel)]="rideDetails.schoolName" name="schoolName">
+
+            <button type="submit" class="btn btn-success" [disabled]="rideForm.invalid">Post</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+.available-options-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.available-options-container h2 {
+    color: green;
+    margin-bottom: 20px;
+}
+
+.apartment {
+    border: 1px solid orange;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.apartment-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.apartment-row label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.apartment-row input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.btn-primary {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: darkorange;
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+    .available-options-container {
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .apartment-row input, .apartment-row label {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+    }
+}
+.apartment-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.apartment-image-thumbnail {
+    width: 100px;  /* Adjust as needed */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}

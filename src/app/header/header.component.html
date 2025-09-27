@@ -1,0 +1,23 @@
+<header class="navbar">
+    <div class="container">
+        <!-- Logo with click event -->
+        <a [routerLink]="['/']" class="navbar-brand" (click)="onImageClick()">
+            <img src="assets/logo_transparent.png" alt="UniDosti Logo" class="logo">
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" placeholder="Search..." (input)="onSearch($event)" />
+            <i class="fas fa-search"></i>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <a [routerLink]="['/home']">Home</a>
+            <a [routerLink]="['/about']">About</a>
+            <a [routerLink]="['/services']">Services</a>
+            <a [routerLink]="['/contact']">Contact</a>
+        </nav>
+
+  </div>
+</header>

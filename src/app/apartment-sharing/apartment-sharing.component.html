@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<!-- Apartment Sharing Component -->
+<div class="apartment-sharing-container">
+
+    <div class="find-apartment">
+        <h2>Need an Apartment/Room?</h2>
+        <p>Select Type: Apartment / Room?</p>
+        <select 
+            class="form-control mb-3" 
+            [(ngModel)]="apartment.type" 
+            (change)="setApartmentType(apartment.type)" 
+            required>
+            <option disabled value="">Select Type of Housing</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Room">Room</option>
+        </select>
+        <button 
+            [routerLink]="['/available-apartments']" 
+            class="btn btn-primary" 
+            [disabled]="!apartment.type">
+            Find a Place
+        </button>
+    </div>
+
+    <!-- Section to post an apartment/room -->
+    <div class="post-apartment">
+        <h2>Post an Apartment/Room</h2>
+        <form (ngSubmit)="onSaveApartment(apartmentForm, fileInput)" #apartmentForm="ngForm" novalidate>
+            <label for="apartment-name">Name:</label>
+            <input type="text" id="apartment-name" class="form-control" [(ngModel)]="apartment.name" 
+                name="apartmentName" required #apartmentName="ngModel">
+            <div *ngIf="apartmentName.invalid && apartmentName.touched" class="error">Name is required</div>
+        
+            <label for="apartment-sex">Sex:</label>
+            <select id="apartment-sex" class="form-control" [(ngModel)]="apartment.sex" 
+                name="apartmentSex" required #apartmentSex="ngModel">
+                <option value="" disabled selected>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Any</option>
+            </select>
+            <div *ngIf="apartmentSex.invalid && apartmentSex.touched" class="error">Please select a gender</div>
+        
+            <label for="apartment-price">Price/Night:</label>
+            <input type="number" id="apartment-price" class="form-control" [(ngModel)]="apartment.price" 
+                name="apartmentPrice" required #apartmentPrice="ngModel" min="0">
+            <div *ngIf="apartmentPrice.invalid && apartmentPrice.touched" class="error">Enter a valid price</div>
+        
+            <label for="apartment-type">Type of Place:</label>
+            <select id="apartment-type" class="form-control" [(ngModel)]="apartment.type" 
+                name="apartmentType" required #apartmentType="ngModel">
+                <option disabled value="">Select Type</option>
+                <option>Apartment</option>
+                <option>Room</option>
+            </select>
+            <div *ngIf="apartmentType.invalid && apartmentType.touched" class="error">Type is required</div>
+        
+            <label for="apartment-instructions">Extra Instructions:</label>
+            <input type="text" id="apartment-instructions" class="form-control" 
+                [(ngModel)]="apartment.instructions" name="apartmentInstructions">
+
+                <label for="schoolName">School Name:</label>
+                <input type="text" id="schoolName" disabled="true" [(ngModel)]="apartment.schoolName" name="schoolName">
+        
+            <label for="images">Select Images:</label>
+            <input type="file" id="images" (change)="onFileSelected($event)"  #fileInput multiple />
+        
+            <button type="submit" class="btn btn-success" [disabled]="apartmentForm.invalid">Post</button>
+        </form>
+        
+    </div>
+</div>

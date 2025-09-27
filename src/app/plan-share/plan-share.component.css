@@ -1,0 +1,107 @@
+.plan-sharing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align children to the start of the container */
+    gap: 40px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px; /* Adjust this to fit your design needs */
+    margin: 0 auto;
+    margin-top: 30px; /* Keeps the container centered */
+}
+
+.find-plan{
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%; /* Full width within the container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    max-width: 600px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.post-plan {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%; /* Full width within the container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-plan label {
+    display: block;
+    margin-bottom: 5px; /* Space below each label */
+}
+
+.post-plan input {
+    width: 100%; /* Full width of the container */
+    padding: 8px; /* More padding inside inputs for better text visibility */
+    margin-bottom: 10px; /* More space below each input */
+    border: 1px solid #ccc; /* Subtle border for inputs */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+.post-plan {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%; /* Full width within the container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-primary, .btn-success {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px; /* Extra space above the button */
+    border: none;
+    width: auto;
+    max-width: 150px;
+}
+
+.btn-primary {
+    background-color: orange;
+    color: white;
+}
+
+.btn-success {
+    padding: 10px 30px;
+    background-color: green;
+    color: white;
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+    .ride-sharing-container {
+        max-width: 100%;
+    }
+
+    .find-plan, .post-ride {
+        padding: 10px;
+        box-shadow: none; /* Simpler style for small devices */
+    }
+
+    .post-plan input, .post-plan label {
+        font-size: 14px; /* Smaller font for smaller screens */
+    }
+
+    .btn-success, .btn-primary {
+        padding: 8px 16px; /* Smaller buttons on smaller screens */
+    }
+}
+
+/* Input width adjustments */
+.post-ride input, .post-ride label {
+    width: calc(100% - 20px); /* Ensures inputs do not overflow their container */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}

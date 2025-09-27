@@ -1,0 +1,80 @@
+<app-header></app-header>
+<div class="plan-sharing-container">
+  <!-- Section to find a plan -->
+  <div class="find-plan">
+    <h2>Need a plan?</h2>
+    <p>Find available options</p>
+    <select class="form-control mb-3" [(ngModel)]="planDetails.type" (change)="setType(planDetails.type)">
+      <option disabled value="">Select Type of Plan - Phone, Entertainment, Groceries?</option>
+      <option>Phone</option>
+      <option>Entertainment</option>
+      <option>Groceries</option>
+    </select>
+    <button [routerLink]="['/available-plans']" class="btn btn-primary" (click)="setType(planDetails.type)">Find a plan</button>
+  </div>
+
+  <!-- Section to post a plan -->
+  <div class="post-plan">
+    <h2>Post a plan?</h2>
+    <form (submit)="postPlan()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="planDetails.name" name="name">
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" [(ngModel)]="planDetails.age" name="age">
+
+      <label for="sex">Sex:</label>
+      <input type="text" id="sex" [(ngModel)]="planDetails.sex" name="sex">
+
+      <label for="price">Price/month:</label>
+      <input type="text" id="price" [(ngModel)]="planDetails.price" name="price">
+
+      <label for="type">Type of Plan:</label>
+      <select id="type" [(ngModel)]="planDetails.type" name="type">
+        <option>Phone</option>
+        <option>Entertainment</option>
+        <option>Groceries</option>
+      </select>
+
+      <label for="contact">Phone Number:</label>
+      <input type="text" id="contact" [(ngModel)]="planDetails.contact" name="contact">
+
+      <label for="schoolName">School Name:</label>
+      <input type="text" id="schoolName" disabled="true" [(ngModel)]="planDetails.schoolName" name="schoolName">
+  
+
+      <button type="submit" class="btn btn-success">Post</button>
+    </form>
+  </div>
+
+  <!-- Section to display plans -->
+  <div class="available-plans-container" *ngIf="plans.length">
+    <h2>Available Plans</h2>
+    <div *ngFor="let plan of plans" class="plan">
+      <div class="plan-row">
+        <label>Name:</label>
+        <input type="text" [value]="plan.name" readonly>
+      </div>
+      <div class="plan-row">
+        <label>Sex:</label>
+        <input type="text" [value]="plan.sex" readonly>
+      </div>
+      <div class="plan-row">
+        <label>Age:</label>
+        <input type="text" [value]="plan.age" readonly>
+      </div>
+      <div class="plan-row">
+        <label>Price/month:</label>
+        <input type="text" [value]="plan.price" readonly>
+      </div>
+      <div class="plan-row">
+        <label>Type:</label>
+        <input type="text" [value]="plan.type" readonly>
+      </div>
+      <div class="plan-row">
+        <label>Contact:</label>
+        <input type="text" [value]="plan.contact" readonly>
+      </div>
+    </div>
+  </div>
+</div>

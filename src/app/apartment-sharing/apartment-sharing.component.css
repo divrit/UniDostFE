@@ -1,0 +1,88 @@
+.apartment-sharing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.find-apartment, .post-apartment {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: orange;
+    color: white;
+}
+
+.btn-success {
+    background-color: green;
+    color: white;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .apartment-sharing-container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .find-apartment, .post-apartment {
+        width: 100%;
+        padding: 15px;
+    }
+
+    input, select {
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 8px;
+    }
+}

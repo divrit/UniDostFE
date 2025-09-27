@@ -1,0 +1,48 @@
+.available-options-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.available-options-container h2 {
+    color: green;
+}
+
+.plan {
+    border: 1px solid orange;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.plan-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.plan-row label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.plan-row input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.plan-row button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.plan-row button:hover {
+    background-color: darkorange;
+}

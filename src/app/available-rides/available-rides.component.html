@@ -1,0 +1,41 @@
+<div>
+    <app-header></app-header>
+</div>
+
+<div class="available-options-container">
+    <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    <h2>Available Ride Options around {{uniName}}</h2>
+    <div *ngFor="let ride of rides" class="plan">
+        <div class="plan-row">
+            <label>Name:</label>
+            <input type="text" [value]="ride.name" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Sex:</label>
+            <input type="text" [value]="ride.sex" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Age:</label>
+            <input type="text" [value]="ride.age" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Price/hr:</label>
+            <input type="text" [value]="ride.price" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Purpose:</label>
+            <input type="text" [value]="ride.purpose" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Posted At:</label>
+            <input type="text" [value]="ride.postedAt | date:'medium'" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Contact:</label>
+            <button class="btn btn-primary" (click)="showContactM(ride.id!)">VIEW</button>
+        </div>
+        <div class="plan-row" *ngIf="showContact[ride.id!]">
+            <input type="text" [value]="ride.contact" readonly>
+        </div>
+    </div>
+</div>

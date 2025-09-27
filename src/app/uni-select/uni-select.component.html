@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+<!-- Background Animation -->
+<div class="background-animation"></div>
+<div>
+    <app-header></app-header>
+</div>
+
+<div class="container text-center my-5">
+    <h1 class="display-4 animate-title">Welcome to Uni Dosti!</h1>
+    <p class="lead">South-Asian student's platform for travel & plan sharing.</p>
+
+    <div class="mt-4 position-relative">
+        <h1 class="mt-4">Enter your university email id for verification.</h1>
+        <div class="input-group email-group">
+            <input type="email" id="email" class="form-control glass-input" [(ngModel)]="userEmail" (input)="emailEntered = true" (keyup)="emailIsValid()" placeholder="University email id" required>
+            <span class="input-group-text glass-input">
+                <i *ngIf="emailIsValid()" class="fas fa-check text-success"></i>
+            </span>
+        </div>
+        <div *ngIf="emailIsValid()" class="mt-4 alert alert-success animate-fade">
+            Your email <strong>{{ userEmail }}</strong> has been verified and recorded.
+        </div>
+        <small *ngIf="!emailIsValid() && emailEntered" class="text-danger">Your email has not been verified.</small>
+    </div>
+
+    <h2 class="mt-4">Select Your University</h2>
+    <div class="dropdown w-50 mx-auto mt-2">
+        <div class="input-group search-group glass-input">
+            <input [disabled]="!emailIsValid()" type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search for a university" (focus)="showDropdown = true" (input)="filterUniversities()">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </div>
+        <div class="dropdown-menu w-100" [class.show]="showDropdown">
+            <a class="dropdown-item" *ngFor="let university of filteredUniversities" (click)="selectUniversity(university.name)">
+                {{ university.name }}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Card Container -->
+<div class="container mt-5">
+    <div class="card-container">
+
+        <!-- Apartment/Room Share -->
+        <div class="card animated-card" 
+            [class.disabled]="!emailIsValid()" 
+            (click)="navigateTo('apartment-sharing')" 
+            [attr.title]="!emailIsValid() ? 'Please enter your email' : ''">
+            <img src="assets/roomshare_image_without_text.png" class="card-img-top" alt="Apartment Share">
+            <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Apartment/Room Share</h5>
+                <p class="card-text">Offer your room to overnight students or for a few days.</p>
+                <button class="btn btn-primary" [disabled]="!emailIsValid()">List Your Room</button>
+            </div>
+        </div>
+
+        <!-- Car Rental Share -->
+        <div class="card animated-card" 
+            [class.disabled]="!emailIsValid()" 
+            (click)="navigateTo('sharing')" 
+            [attr.title]="!emailIsValid() ? 'Please enter your email' : ''"
+            >
+            <img src="https://media.rideguru.com/uploads/ola_sedan.png" class="card-img-top" alt="Car Rental">
+            <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Car Rental Share</h5>
+                <p class="card-text">Share your car rental expenses with fellow students.</p>
+                <button class="btn btn-primary" [disabled]="!emailIsValid()">Join Now</button>
+            </div>
+        </div>
+
+        <!-- Plan Share -->
+        <div class="card animated-card" 
+            [class.disabled]="!emailIsValid()" 
+            (click)="navigateTo('plan-sharing')" 
+            [attr.title]="!emailIsValid() ? 'Please enter your email' : ''">
+            <img src="https://cms-web.olacabs.com/00000000356.jpg" class="card-img-top" alt="Plan Share">
+            <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Plan Share</h5>
+                <p class="card-text">Find fellow students to share family plans.</p>
+                <button class="btn btn-primary" [disabled]="!emailIsValid()">Start Sharing</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

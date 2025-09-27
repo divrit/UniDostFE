@@ -1,0 +1,53 @@
+
+<div >
+    <app-header></app-header>
+</div>
+
+
+<div class="available-options-container">
+    <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    <h2>Available Options for Plan around {{UniName}}</h2>
+
+    <div *ngFor="let plan of plans" class="plan">
+        <div class="plan-row">
+            <label>Name:</label>
+            <input type="text" [value]="plan.name" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Sex:</label>
+            <input type="text" [value]="plan.sex" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Age:</label>
+            <input type="text" [value]="plan.age" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Price/month:</label>
+            <input type="text" [value]="plan.price" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Type of Plan:</label>
+            <input type="text" [value]="plan.type" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Posted At:</label>
+            <input type="text" [value]="plan.postedAt | date:'medium'" readonly>
+        </div>
+        <div class="plan-row">
+            <label>Extra Instructions:</label>
+            <input type="text" [value]="plan.contact" readonly>
+        </div>
+       
+
+
+        <div class="plan-row">
+            <label>Contact:</label>
+            <button class="btn btn-primary" (click)="showContactM(plan.id!)">VIEW</button>
+        </div>
+
+
+        <div class="plan-row" *ngIf="showContact[plan.id!]">
+            <input type="text" [value]="plan.contact" readonly>
+        </div>
+    </div>
+</div>
